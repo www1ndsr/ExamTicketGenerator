@@ -53,7 +53,10 @@ def get_input_with_escape(prompt):
 
         value = value.strip()
         if value:
-            return value
+            if all(character.isalpha() for character in value):
+                return value
+            print("Разрешены только буквы. Введите значение без цифр и знаков.")
+            continue
 
         print("Поле не может быть пустым. Пожалуйста, введите значение.")
 
